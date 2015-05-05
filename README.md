@@ -1,6 +1,6 @@
 # Google Chrome Bookmarks Manager
 
-Utilitaire pour la gestion des favoris pour Google Chrome
+Utilitaire pour la gestion des favoris dans Google Chrome
 
 Le besoin de créer cette extension pour Google Chrome vient du fait qu'après avoir importé plusieurs fois les favoris des différents navigateurs, je me retrouve avec beaucoup de doublons. De plus, les favoris ne sont pas correctement rangés.
 
