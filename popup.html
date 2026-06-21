@@ -6,19 +6,117 @@
     <title>Bookmark Management</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            width: 300px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            width: 600px;
             padding: 15px;
-            text-align: center;
+            margin: 0;
         }
         h1 {
             font-size: 18px;
-            margin: 0;
+            margin: 0 0 15px 0;
             color: #333;
+        }
+        .stats {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        #search {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .table-container {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background-color: #f8f9fa;
+            position: sticky;
+            top: 0;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .pagination button {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .pagination button:not(:disabled):hover {
+            background-color: #e0e0e0;
+        }
+        .page-info {
+            color: #666;
+            font-size: 13px;
+        }
+        #bookmarkCount {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
     <h1>Bookmark Management</h1>
+    <p id="bookmarkCount">Total: 0</p>
+    <div class="stats">
+        <span id="duplicateCount">Doublons: 0</span> |
+        <span id="uniqueCount">URLs uniques: 0</span>
+    </div>
+
+    <input type="text" id="search" placeholder="Filtrer les URLs...">
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody id="duplicatesTable">
+                <tr><td colspan="2" class="loading">Chargement en cours...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <button id="prevPage" disabled>← Précédent</button>
+        <span class="page-info" id="pageInfo">Page 1/1</span>
+        <button id="nextPage" disabled>Suivant →</button>
+    </div>
+
+    <script src="popup.js"></script>
 </body>
 </html>
