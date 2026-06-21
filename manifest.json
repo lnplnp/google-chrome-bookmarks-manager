@@ -1,12 +1,13 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "Bookmark Management",
-  "description": "Delete empty",
-  "version": "0.3",
+  "description": "Gestion des favoris Chrome : détection des doublons et organisation",
+  "version": "0.4",
 
-  "browser_action": {
-    "default_title": "Bookmark Management"
+  "action": {
+    "default_title": "Bookmark Management",
+    "default_popup": "popup.html"
   },
   "permissions": [
     "bookmarks"
